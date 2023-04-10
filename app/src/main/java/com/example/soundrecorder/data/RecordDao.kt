@@ -1,15 +1,16 @@
 package com.example.soundrecorder.data
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
 interface RecordDao {
 
     @Query("SELECT * FROM record ORDER BY soundId DESC")
-    fun getAllRecords():List<Record>
+    fun getAllRecords(): Flow<List<Record>>
 
-    @Query("SELECT * FROM record WHERE soundId LIKE id ")
+    @Query("SELECT * FROM record WHERE soundId LIKE :id ")
     fun getRecord(id: Long):Record
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

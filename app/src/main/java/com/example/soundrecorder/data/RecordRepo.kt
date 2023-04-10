@@ -1,14 +1,15 @@
 package com.example.soundrecorder.data
 
 
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
 class RecordRepo @Inject constructor(private val recordDao: RecordDao){
 
-    fun getAllRecords(): List<Record> = recordDao.getAllRecords()
+    fun getAllRecords(): Flow<List<Record>> = recordDao.getAllRecords()
 
-    fun getRecord(id:Int) = recordDao.getRecord(id)
+    fun getRecord(id:Long) = recordDao.getRecord(id)
 
     suspend fun insertRecord(record: Record) = recordDao.insertRecord(record)
 

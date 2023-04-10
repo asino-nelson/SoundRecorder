@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.soundrecorder.data.RecordDao
 import com.example.soundrecorder.data.RecordDatabase
+import com.example.soundrecorder.data.RecordRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,9 +26,19 @@ object AppModule {
             "record_db"
         ).build()
     }
+
+
     @Provides
     @Singleton
     fun provideRecordDao(recordDatabase: RecordDatabase):RecordDao{
         return recordDatabase.getRecordDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideRecordRepo(recordDao: RecordDao):RecordRepo{
+        return RecordRepo(recordDao)
+    }
+
+
 }
