@@ -89,4 +89,5 @@ fun RecordItem(record: Record,navController: NavController){
         }
 
     }
+    Spacer(modifier = Modifier.height(15.dp))
 }
