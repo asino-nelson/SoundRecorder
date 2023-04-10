@@ -13,10 +13,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.soundrecorder.data.Record
+import com.example.soundrecorder.presentation.navigation.Screens
 
 @Composable
-fun MyRecordings(){
+fun MyRecordings(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -25,6 +27,7 @@ fun MyRecordings(){
         verticalArrangement = Arrangement.Top
     ) {
 
+
     }
 
 
@@ -32,14 +35,17 @@ fun MyRecordings(){
 }
 
 @Composable
-fun RecordItem(record: Record){
+fun RecordItem(record: Record,navController: NavController){
 
     Card(modifier = Modifier
         .fillMaxWidth()
         .padding(20.dp)
+        .clickable {
+            navController.navigate(Screens.PlayScreen.route)
+        }
     ) {
         Row(
-            modifier = Modifier.fillMaxSize().clickable {  },
+            modifier = Modifier.fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -63,7 +69,9 @@ fun RecordItem(record: Record){
             Icon(
                 imageVector = Icons.Default.PlayArrow,
                 contentDescription = "Play",
-                modifier = Modifier.clickable {  }
+                modifier = Modifier.clickable {
+                    navController.navigate(Screens.PlayScreen.route)
+                }
             )
         }
 

@@ -16,12 +16,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.soundrecorder.domain.record.SoundRecorderImplementation
+import com.example.soundrecorder.presentation.navigation.Screens
 import java.io.File
 
 @Composable
 fun RecordScreen(
-    context: Context
+    context: Context,
+    navController: NavController
 ){
 
     val recorder by lazy {
@@ -59,7 +62,7 @@ fun RecordScreen(
 
 
         IconButton(
-            onClick = {/*TODO*/ }
+            onClick = { navController.navigate(Screens.RecordsScreen.route) }
         ) {
             Icon(imageVector = Icons.Default.Edit, contentDescription = "Recordings")
         }

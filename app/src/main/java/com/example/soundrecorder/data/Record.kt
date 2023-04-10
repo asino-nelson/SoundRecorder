@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Record(
     @PrimaryKey(autoGenerate = true)
-    val soundId:Int,
+    val soundId:Long = 0,
     val date:String,
-    val duration:String
+    val duration:Long
 )

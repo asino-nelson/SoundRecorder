@@ -10,7 +10,7 @@ interface RecordDao {
     fun getAllRecords():List<Record>
 
     @Query("SELECT * FROM record WHERE soundId LIKE id ")
-    fun getRecord(id: Int):Record
+    fun getRecord(id: Long):Record
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRecord(record: Record)
