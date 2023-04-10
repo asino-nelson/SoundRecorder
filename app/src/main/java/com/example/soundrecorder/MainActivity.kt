@@ -5,13 +5,11 @@ import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.soundrecorder.presentation.recorded_list.RecordsViewModel
 import com.example.soundrecorder.presentation.recording_screen.RecordScreen
 import com.example.soundrecorder.ui.theme.SoundRecorderTheme
 import dagger.hilt.android.AndroidEntryPoint
